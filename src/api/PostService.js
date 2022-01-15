@@ -1,7 +1,7 @@
 import axios from "axios";
 import { data } from "jquery";
 import { ENTITY_TYPE_POST} from "constant/entityType"
-const API_URL = "http://api.phamdong.com"
+const API_URL = "https://api.phamdong.com"
 
 class PostService {
 
