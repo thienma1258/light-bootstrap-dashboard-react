@@ -20,12 +20,11 @@ import { useLocation, NavLink } from "react-router-dom";
 
 import { Nav } from "react-bootstrap";
 
-import logo from "assets/img/reactlogo.png";
 
 function Sidebar({ color, image, routes }) {
   const location = useLocation();
   const activeRoute = (routeName) => {
-    return location.pathname.indexOf(routeName) > -1 ? "active" : "";
+    // return location.pathname.indexOf(routeName) > -1 ? "active" : "";
   };
   return (
     <div className="sidebar" data-image={image} data-color={color}>
@@ -48,13 +47,13 @@ function Sidebar({ color, image, routes }) {
               />
             </div>
           </a>
-          <a className="simple-text" href="http://www.creative-tim.com">
-            Creative Tim
+          <a className="simple-text" href="http://www.phamdong.com">
+          ND
           </a>
         </div>
         <Nav>
           {routes.map((prop, key) => {
-            if (!prop.redirect)
+            if (!prop.redirect && !prop.isHidden)
               return (
                 <li
                   className={

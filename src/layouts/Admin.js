@@ -16,7 +16,7 @@
 
 */
 import React, { Component } from "react";
-import { useLocation, Route, Switch } from "react-router-dom";
+import { useLocation,Route, Switch } from "react-router-dom";
 
 import AdminNavbar from "components/Navbars/AdminNavbar";
 import Footer from "components/Footer/Footer";
@@ -36,9 +36,10 @@ function Admin() {
   const getRoutes = (routes) => {
     return routes.map((prop, key) => {
       if (prop.layout === "/admin") {
+        let path =  prop.layout + prop.path;
         return (
           <Route
-            path={prop.layout + prop.path}
+            exact path={path}
             render={(props) => <prop.component {...props} />}
             key={key}
           />

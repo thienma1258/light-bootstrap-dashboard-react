@@ -22,23 +22,19 @@ import Typography from "views/Typography.js";
 import Icons from "views/Icons.js";
 import Maps from "views/Maps.js";
 import Notifications from "views/Notifications.js";
+import PostsList from "views/posts/Posts.js";
 import Upgrade from "views/Upgrade.js";
+import AddPost from "views/posts/AddPost.js";
+import EditPost from "views/posts/EditPost.js";
 
 const dashboardRoutes = [
-  {
-    upgrade: true,
-    path: "/upgrade",
-    name: "Upgrade to PRO",
-    icon: "nc-icon nc-alien-33",
-    component: Upgrade,
-    layout: "/admin",
-  },
   {
     path: "/dashboard",
     name: "Dashboard",
     icon: "nc-icon nc-chart-pie-35",
     component: Dashboard,
     layout: "/admin",
+    isShow: true,
   },
   {
     path: "/user",
@@ -81,6 +77,29 @@ const dashboardRoutes = [
     icon: "nc-icon nc-bell-55",
     component: Notifications,
     layout: "/admin",
+  },
+  {
+    path: "/posts",
+    name: "Post",
+    icon: "nc-paper-2",
+    component: PostsList,
+    layout: "/admin",
+  },
+  {
+    path: "/posts/create",
+    name: "Notifications",
+    icon: "nc-icon nc-bell-55",
+    component: AddPost,
+    layout: "/admin",
+    isHidden: true,
+  },
+  {
+    path: "/posts/:id",
+    name: "Notifications",
+    icon: "nc-icon nc-bell-55",
+    component: EditPost,
+    layout: "/admin",
+    isHidden: true,
   },
 ];
 
