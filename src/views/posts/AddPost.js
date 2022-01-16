@@ -19,7 +19,6 @@ const AddPost = (props) => {
           <Col md="12">
             <Post
              onSuccess={onCreateSuccess}>
-
              </Post>
           </Col>
         </Row>

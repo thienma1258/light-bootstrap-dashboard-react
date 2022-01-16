@@ -40,7 +40,7 @@ class PostService {
     return result.data;
   }
 
-  async create(title, body, image, meta, published) {
+  async create(title, body, image, meta, published,description) {
     // Make a Post Request
     let result = await axios({
       method: "post",
@@ -57,7 +57,6 @@ class PostService {
         return data.data;
     })
     .catch((error) => {
-      console.log(error);
       return error;
     });
     return result;
