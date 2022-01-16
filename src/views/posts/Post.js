@@ -16,6 +16,7 @@ const Post = (props) => {
     name: "",
     published: "",
     thumbnail: "",
+    description:"",
   });
 
   const [bodyPayload, setBody] = useState(null);
@@ -29,16 +30,16 @@ const Post = (props) => {
       setID(props.id);
       let postMap = await PostService.getByIDs(
         [props.id],
-        ["author", "name", "image", "title"]
+        ["author", "name", "image", "title","description"]
       );
       if (typeof postMap !== "undefined") {
         const post = postMap[`${ENTITY_TYPE_POST}-${props.id}`];
         const published = post.published ? 1 : 0;
-        console.log(published);
         setPost({
           name: post.title,
           published: published,
           thumbnail: post.image,
+          description:post.description
         });
         setBody(post.body);
       }
@@ -72,7 +73,8 @@ const Post = (props) => {
       bodyPayload,
       post.thumbnail,
       {},
-      isPublished
+      isPublished,
+      post.description
     );
     setIsLoading(false);
     if (typeof result !== "undefined" && result.code === 0) {
@@ -95,7 +97,8 @@ const Post = (props) => {
       bodyPayload,
       post.thumbnail,
       {},
-      isPublished
+      isPublished,
+      post.description
     );
 
     setIsLoading(false);
@@ -121,6 +124,16 @@ const Post = (props) => {
                   placeholder="Enter name"
                   onChange={handleChange}
                   value={post.name}
+                />
+              </Form.Group>
+              <Form.Group controlId="description">
+                <Form.Label>Description</Form.Label>
+                <Form.Control
+                  name="description"
+                  type="text"
+                  placeholder="Enter Description"
+                  onChange={handleChange}
+                  value={post.description}
                 />
               </Form.Group>
               <Form.Group controlId="published">

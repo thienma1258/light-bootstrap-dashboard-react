@@ -70,12 +70,12 @@ function PostsList() {
                 <Card.Title as="h4">Posts</Card.Title>
                 <p className="card-category">List posts</p>
                 <Button
-                            className="float-right"
-                            variant="success"
-                            onClick={(e) => redirectToCreateNew()}
-                          >
-                            Create
-                          </Button>
+                  className="float-right"
+                  variant="success"
+                  onClick={(e) => redirectToCreateNew()}
+                >
+                  Create
+                </Button>
               </Card.Header>
               <Card.Body className="table-full-width table-responsive px-0">
                 <Row>

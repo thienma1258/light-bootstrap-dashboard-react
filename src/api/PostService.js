@@ -51,6 +51,7 @@ class PostService {
         meta: meta,
         image: image,
         published: published,
+        description:description
       },
     }).then((data) => {
         return data.data;
@@ -62,7 +63,7 @@ class PostService {
     return result;
   }
 
-  async update(id, title, body, image, meta, published) {
+  async update(id, title, body, image, meta, published,description) {
     let result = await axios({
       method: "put",
       url: `${API_URL}/v0/posts/${id}`,
@@ -72,6 +73,7 @@ class PostService {
         meta: meta,
         image: image,
         published: published,
+        description:description
       },
     }).then((data) => {
         return data.data;
